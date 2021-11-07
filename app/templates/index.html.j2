@@ -1,0 +1,21 @@
+{% extends 'base.html.j2' %}
+{% block title %}
+  Trash Talk
+{% endblock %}
+
+{% block content %}
+  
+  <form method="POST" action="{{url_for('social.index')}}">
+    <div class="mb-3">
+      <textarea class="form-control" placeholder="Talk some trash?" name="body" style="height: 100px;"></textarea>
+    </div>
+      <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plane-departure"></i>&nbsp;Post</button>
+
+  <h1>Pokemon Feed!</h1>
+  <hr>
+  {% for post in posts %}
+    {% include './includes/_post.html.j2' %}
+  
+  {% endfor %}
+  
+{% endblock %}

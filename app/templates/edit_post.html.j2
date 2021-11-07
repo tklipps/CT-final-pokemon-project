@@ -1,0 +1,15 @@
+{% extends 'base.html.j2' %}
+{% block title %}
+Edit Post
+{% endblock %}
+
+{% block content %}
+<form method="POST" action="{{url_for('social.edit_post', id = post.id)}}">
+    <div class='mb-3'>
+     <div class="mb-3">
+      <textarea class="form-control" p name="body" style="height: 100px;">{{post.body}}</textarea>
+    </div>
+      <button type="submit" class="btn btn-danger"><i class="fa-solid fa-plane-departure"></i>&nbsp;Submit Edit</button>
+</form>
+
+{% endblock %}

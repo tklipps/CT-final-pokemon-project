@@ -1,0 +1,19 @@
+.navbar{
+    margin-bottom: 15px;
+}
+
+body{
+    
+    background-image: url(./images/poke_background.png);
+    background-size: cover;                      
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: rgb(127,173,113);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1{
+    color: red;
+    text-shadow: 1px 1px black
+}
+

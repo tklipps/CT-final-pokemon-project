@@ -1,0 +1,15 @@
+
+body{
+    background-image: url(./images/poke_overlay.png) ;
+    
+    background-image: url(./images/poke_background_login.png);
+    background-size: cover;                      
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: rgb(88,96,94);
+}
+
+h1{
+    color: violet;
+    text-shadow: 1px 1px black
+}

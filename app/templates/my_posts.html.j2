@@ -1,0 +1,12 @@
+{% extends 'base.html.j2' %}
+{% block title %}
+Your Junk
+{% endblock %}
+
+{% block contecnt %}
+    <h1>My Junk</h1>
+    <hr>
+    {% for post in posts %}
+        {% include './includes/_post.html.j2' %}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html.j2' %}
+
+{% block title %}
+Pokemon Fight!
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+<div class="col-md-4">
+<h1>Your Team:</h1>
+{% for poke in pokemon %}
+
+    {% if poke.user_id == current_user.id %}
+    <div class="card mb-3" style="max-width: 375px;">
+    <div class="row g-0">
+            <div class="col-md-4">            
+                <img src="{{ poke.get_image_url() }}" class="img-fluid rounded-start" alt="avatar">            
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title">{{poke.poke_name | title}}</h5>
+                    <p class="card-text">Hit Points: {{poke.hit_points}}</p>
+                    <p class="card-text">Attack Points: {{poke.attack}}</p>
+                    <p class="card-text">Defense Points: {{poke.defense}}</p>
+                </div>
+            </div>
+            
+    </div>
+    </div>
+    {% endif %}    
+{% endfor %}
+</div>
+<div class="col-md-4">
+    <img src="../static/images/pika_face3.png" class="img-fluid rounded-start" alt="pika">
+    <h5>Your attack points will go through their defense and hit points. Then, they will attack you back. The player with the highest hit point/defense score at the end wins!</h5>
+    <div class="d-grid gap-2">
+        <a href="/battle/{{otherid}}" class="btn btn-danger" type="button">FIGHT?</a>
+    </div>
+</div>
+<div class="col-md-4">
+<h1>Their Team:</h1>
+{% for poke in pokemon %}
+    {% if poke.user_id == otherid %}
+    <div class="card mb-3" style="max-width: 375px;">
+    <div class="row g-0">
+            <div class="col-md-4">            
+                <img src="{{ poke.get_image_url() }}" class="img-fluid rounded-start" alt="avatar">            
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title">{{poke.poke_name | title}}</h5>
+                    <p class="card-text">Hit Points: {{poke.hit_points}}</p>
+                    <p class="card-text">Attack Points: {{poke.attack}}</p>
+                    <p class="card-text">Defense Points: {{poke.defense}}</p>
+                </div>
+            </div>
+            
+    </div>
+    </div>
+    {% endif %}
+{% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html.j2' %}
+
+{% block title %}
+Pokemon Info
+{% endblock %}
+
+{% block content %}
+    
+    
+    
+    <h1>Pokemon Info</h1>
+    
+    
+    <form method="POST" action="{{url_for('main.pokeinfo')}}">
+    {{ form.hidden_tag() }}
+    {{ form.poke_id.label (class = "form-label")}}
+    {{ form.poke_id(class = "form-control") }} <br>
+    
+    {# <div class="mb-3">
+        <label for="poke" class="form-label">Pokemon Name</label>
+        <input type="text" name="poke" class="form-control" id="poke">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form> #}
+   
+   
+    {% if poke %}
+        <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Pokemon Name</th>
+            <th scope="col">HP Base</th>
+            <th scope="col">Defense Base</th>
+            <th scope="col">Attack Base</th>
+            <th scope="col">Image</th>
+            
+            </tr> 
+        </thead>
+        <tbody>
+            
+                <tr>
+                    <th scope="row">{{poke['poke_name']|title}}<br><a href="/pokeget/{{poke['poke_name']}}" class="btn btn-danger">Catch 'em!</a></th>
+                    
+                    <td>{{poke['base_hp']}}</td>
+                    <td>{{poke['base_defense']}}</td>
+                    <td>{{poke['base_attack']}}</td>    
+                    <td><img src="{{poke['front_shiny']}}"></img></td>
+                    
+                </tr>
+            
+        </tbody>
+        </table>
+        
+    {% else %}
+    Type the Pokemon name you want to know about.
+    {% endif %}
+
+
+{% endblock %}
